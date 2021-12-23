@@ -1,4 +1,4 @@
-module github.com/samsarahq/thunder
+module github.com/edwardofclt/thunder
 
 go 1.15
 
