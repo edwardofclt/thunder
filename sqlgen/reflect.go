@@ -12,7 +12,7 @@ import (
 	"sync"
 	"unicode"
 
-	"github.com/samsarahq/thunder/internal/fields"
+	"github.com/edwardofclt/thunder/internal/fields"
 )
 
 type Filter map[string]interface{}
@@ -158,7 +158,7 @@ func (s *Schema) buildDescriptor(table string, primaryKeyType PrimaryKeyType, ty
 			return nil, fmt.Errorf("bad type %s: anonymous fields not supported", typ)
 		}
 
-		tags := strings.Split(field.Tag.Get("sql"), ",")
+		tags := strings.Split(field.Tag.Get("json"), ",")
 		var column string
 		if len(tags) > 0 {
 			column = tags[0]

@@ -9,11 +9,11 @@ import (
 	"sync"
 	"time"
 
+	"github.com/edwardofclt/thunder/batch"
+	"github.com/edwardofclt/thunder/diff"
+	"github.com/edwardofclt/thunder/reactive"
 	"github.com/gorilla/websocket"
 	"github.com/samsarahq/go/oops"
-	"github.com/samsarahq/thunder/batch"
-	"github.com/samsarahq/thunder/diff"
-	"github.com/samsarahq/thunder/reactive"
 )
 
 const (

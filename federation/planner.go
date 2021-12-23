@@ -5,9 +5,9 @@ import (
 	"fmt"
 	"sort"
 	"strings"
-	
+
+	"github.com/edwardofclt/thunder/graphql"
 	"github.com/samsarahq/go/oops"
-	"github.com/samsarahq/thunder/graphql"
 )
 
 const queryString string = "query"
@@ -131,11 +131,11 @@ func printSelections(selectionSet *graphql.SelectionSet, level int) {
 			if subSelection.Args != nil {
 				fmt.Println(strings.Repeat(" ", level), "   args ", subSelection.Args)
 			}
-			printSelections(subSelection.SelectionSet, level+ 1)
+			printSelections(subSelection.SelectionSet, level+1)
 		}
 		fmt.Println(strings.Repeat(" ", level), "fragments")
 		for _, subFragment := range selectionSet.Fragments {
-			printSelections(subFragment.SelectionSet, level+ 1)
+			printSelections(subFragment.SelectionSet, level+1)
 		}
 	}
 }

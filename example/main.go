@@ -6,13 +6,13 @@ import (
 	"net/http"
 	"sort"
 
+	"github.com/edwardofclt/thunder/graphql"
+	"github.com/edwardofclt/thunder/graphql/graphiql"
+	"github.com/edwardofclt/thunder/graphql/introspection"
+	"github.com/edwardofclt/thunder/graphql/schemabuilder"
+	"github.com/edwardofclt/thunder/livesql"
+	"github.com/edwardofclt/thunder/sqlgen"
 	_ "github.com/go-sql-driver/mysql"
-	"github.com/samsarahq/thunder/graphql"
-	"github.com/samsarahq/thunder/graphql/graphiql"
-	"github.com/samsarahq/thunder/graphql/introspection"
-	"github.com/samsarahq/thunder/graphql/schemabuilder"
-	"github.com/samsarahq/thunder/livesql"
-	"github.com/samsarahq/thunder/sqlgen"
 )
 
 type Server struct {

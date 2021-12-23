@@ -4,7 +4,7 @@ import (
 	"errors"
 	"testing"
 
-	"github.com/samsarahq/thunder/graphql"
+	"github.com/edwardofclt/thunder/graphql"
 	"github.com/stretchr/testify/assert"
 )
 

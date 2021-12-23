@@ -7,10 +7,10 @@ import (
 	"testing"
 	"time"
 
+	"github.com/edwardofclt/thunder/batch"
+	"github.com/edwardofclt/thunder/internal/proto"
+	"github.com/edwardofclt/thunder/internal/testfixtures"
 	_ "github.com/go-sql-driver/mysql"
-	"github.com/samsarahq/thunder/batch"
-	"github.com/samsarahq/thunder/internal/proto"
-	"github.com/samsarahq/thunder/internal/testfixtures"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 )

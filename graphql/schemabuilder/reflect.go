@@ -9,7 +9,7 @@ import (
 	"strings"
 	"unicode"
 
-	"github.com/samsarahq/thunder/graphql"
+	"github.com/edwardofclt/thunder/graphql"
 )
 
 // makeGraphql converts a field name "MyField" into a graphQL field name "myField".

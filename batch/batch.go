@@ -22,7 +22,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/samsarahq/thunder/concurrencylimiter"
+	"github.com/edwardofclt/thunder/concurrencylimiter"
 )
 
 // DefaultWaitInterval is the default WaitInterval for Func.

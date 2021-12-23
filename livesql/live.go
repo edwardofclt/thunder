@@ -4,9 +4,9 @@ import (
 	"context"
 	"sync"
 
-	"github.com/samsarahq/thunder/internal"
-	"github.com/samsarahq/thunder/reactive"
-	"github.com/samsarahq/thunder/sqlgen"
+	"github.com/edwardofclt/thunder/internal"
+	"github.com/edwardofclt/thunder/reactive"
+	"github.com/edwardofclt/thunder/sqlgen"
 )
 
 // dbResource tracks changes to a specific table matching a filter

@@ -3,8 +3,8 @@ package graphql_test
 import (
 	"testing"
 
-	"github.com/samsarahq/thunder/graphql/schemabuilder"
-	"github.com/samsarahq/thunder/internal/testgraphql"
+	"github.com/edwardofclt/thunder/graphql/schemabuilder"
+	"github.com/edwardofclt/thunder/internal/testgraphql"
 )
 
 func TestDefaultArgs(t *testing.T) {

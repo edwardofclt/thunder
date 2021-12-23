@@ -1,21 +1,20 @@
-Thunder is a Go framework for rapidly building powerful graphql servers.
-Thunder has support for schemas automatically generated from Go types, live
-queries, query batching, and more. Thunder is an open-source project from
-Samsara.
+Thunder is a Go framework for rapidly building powerful graphql servers. Thunder
+has support for schemas automatically generated from Go types, live queries,
+query batching, and more. Thunder is an open-source project from Samsara.
 
 [![Documentation](https://godoc.org/github.com/samsarahq/thunder?status.svg)](http://godoc.org/github.com/samsarahq/thunder)
 
 # Feature Lightning Tour
 
-Thunder has a number of features to make it easy to build sophisticated
-schemas. This section provides a brief overview of some of them.
+Thunder has a number of features to make it easy to build sophisticated schemas.
+This section provides a brief overview of some of them.
 
 ## Reflection-based schema building
 
 Thunder generates resolvers automatically from Go struct types and function
 definitions. For example, the `Friend` struct below gets exposed as a graphql
-object type with `firstName` and `lastName` resolvers that return the fields
-on the type.
+object type with `firstName` and `lastName` resolvers that return the fields on
+the type.
 
 ```go
 // Friend is a small struct representing a person.
@@ -48,8 +47,8 @@ func registerFriend(schema *schemabuilder.Schema) {
 ## Live queries
 
 Thunder has support for automatically updating queries using _resolver
-invalidation_. With invalidation, code on the server can trigger updates on
-the client using a persistent WebSocket connection.
+invalidation_. With invalidation, code on the server can trigger updates on the
+client using a persistent WebSocket connection.
 
 The simplest example is a clock that updates over time. Every 10 seconds the
 `time` function will be recomputed, and the latest time will be sent to the
@@ -72,10 +71,10 @@ func registerQuery(schema *schemabuilder.Schema) {
 
 Using Thunder's lightweight `sqlgen` and `livesql` ORM, it's easy to write
 automatically updating MySQL queries. The example below returns a live-updating
-lists of posts from a database table. Whenever somebody `INSERT`s or `UPDATE`s
-a row in the table, the resolver is re-executed and the latest lists of posts
-is sent to the client. Behind the scenes, the `livesql` package uses MySQL's
-binary replication log to detect changes to the underlying data.
+lists of posts from a database table. Whenever somebody `INSERT`s or `UPDATE`s a
+row in the table, the resolver is re-executed and the latest lists of posts is
+sent to the client. Behind the scenes, the `livesql` package uses MySQL's binary
+replication log to detect changes to the underlying data.
 
 ```go
 // A Post holds a row from the MySQL posts table.
@@ -108,14 +107,14 @@ func (s *Server) registerQuery(schema *schemabuilder.Schema) {
 
 Thunder automatically runs independent resolvers in different goroutines to
 quickly compute complex queries. To keep large queries efficient, Thunder has
-support for built-in batching similar to Facebook's `dataloader`. With
-batching, Thunder automatically combines many parallel individual calls to a
+support for built-in batching similar to Facebook's `dataloader`. With batching,
+Thunder automatically combines many parallel individual calls to a
 `batch.Func`'s `Invoke` function into a single call to `Many` function.
 
-Batching is very useful when fetching related objects from a SQL database. Thunder's
-`sqlgen` and `livesql` have built-in support for batching and will combine `SELECT WHERE`
-statements using an `IN` clause. For example, the program below will fetch all posts and
-their authors in just two queries.
+Batching is very useful when fetching related objects from a SQL database.
+Thunder's `sqlgen` and `livesql` have built-in support for batching and will
+combine `SELECT WHERE` statements using an `IN` clause. For example, the program
+below will fetch all posts and their authors in just two queries.
 
 ```go
 type Post struct {
@@ -145,23 +144,27 @@ func (s *Server) registerPost(schema *schemabuilder.Schema) {
 ```
 
 To execute the query
+
 ```graphql
 query PostsWithAuthors {
   posts {
     title
-    author { name }
+    author {
+      name
+    }
   }
 }
 ```
-Thunder will execute `SELECT * FROM posts` and, if that returns three posts
-with author IDs `10`, `20`, and `31`, a follow-up query `SELECT * FROM
-authors WHERE id IN (10, 20, 31)`.
+
+Thunder will execute `SELECT * FROM posts` and, if that returns three posts with
+author IDs `10`, `20`, and `31`, a follow-up query
+`SELECT * FROM authors WHERE id IN (10, 20, 31)`.
 
 ## Built-in graphiql
 
-To get started quickly without wrangling any JavaScript, Thunder comes with
-a built-in `graphiql` client as an HTTP handler. To use it, simply expose
-with Go's built-in HTTP server.
+To get started quickly without wrangling any JavaScript, Thunder comes with a
+built-in `graphiql` client as an HTTP handler. To use it, simply expose with
+Go's built-in HTTP server.
 
 ```go
 // Expose schema and graphiql.
@@ -172,12 +175,11 @@ http.ListenAndServe(":3030", nil)
 
 ## Split schema building for large graphql servers
 
-A large GraphQL server might have many resolvers on some shared types. To
-keep packages reasonably-sized, Thunder's schema builder supports extending a
-schema. For example, if you have a `User` type with a resolver `photos`
-implemented by your `photos` package, and resolver `events` implemented by
-your `calendar` package, those packages can independently register their
-resolvers:
+A large GraphQL server might have many resolvers on some shared types. To keep
+packages reasonably-sized, Thunder's schema builder supports extending a schema.
+For example, if you have a `User` type with a resolver `photos` implemented by
+your `photos` package, and resolver `events` implemented by your `calendar`
+package, those packages can independently register their resolvers:
 
 ```go
 package common
@@ -208,8 +210,8 @@ func (s *EventsServer) registerUser(schema *schemabuilder.Schema) {
 # Getting started
 
 > First, a fair warning. The Thunder library is still a little bit tricky to use
-> outside of Samsara. The examples above and below work, but eg. the `npm` client
-> still requires some wrangling.
+> outside of Samsara. The examples above and below work, but eg. the `npm`
+> client still requires some wrangling.
 
 ## A minimal complete server
 
@@ -225,11 +227,11 @@ import (
   "net/http"
   "time"
 
-  "github.com/samsarahq/thunder/graphql"
-  "github.com/samsarahq/thunder/graphql/graphiql"
-  "github.com/samsarahq/thunder/graphql/introspection"
-  "github.com/samsarahq/thunder/graphql/schemabuilder"
-  "github.com/samsarahq/thunder/reactive"
+  "github.com/edwardofclt/thunder/graphql"
+  "github.com/edwardofclt/thunder/graphql/graphiql"
+  "github.com/edwardofclt/thunder/graphql/introspection"
+  "github.com/edwardofclt/thunder/graphql/schemabuilder"
+  "github.com/edwardofclt/thunder/reactive"
 )
 
 type post struct {
@@ -299,9 +301,10 @@ func main() {
 
 ## Using Thunder without Websockets (POST requests)
 
-For use with non-live clients (e.g. [Relay](https://facebook.github.io/relay/), [Apollo](https://www.apollographql.com/client/)) thunder provides an HTTP handler that can serve
-POST requests, instead of having the client connect over a websocket. In this mode, thunder
-does not provide live query updates.
+For use with non-live clients (e.g. [Relay](https://facebook.github.io/relay/),
+[Apollo](https://www.apollographql.com/client/)) thunder provides an HTTP
+handler that can serve POST requests, instead of having the client connect over
+a websocket. In this mode, thunder does not provide live query updates.
 
 In the above example, the `main` function would be changed to look like:
 
@@ -326,9 +329,9 @@ func main() {
 
 ## Emitting a schema.json
 
-Thunder can emit a GraphQL introspection query schema useful for compatibility with
-other GraphQL tooling. Alongside code from the above example, here is a small program
-for registering our schema and writing the JSON output to stdout.
+Thunder can emit a GraphQL introspection query schema useful for compatibility
+with other GraphQL tooling. Alongside code from the above example, here is a
+small program for registering our schema and writing the JSON output to stdout.
 
 ```go
 // schema_generator.go
@@ -352,6 +355,7 @@ func main() {
 ```
 
 This program can then be run to generate `schema.json`:
+
 ```bash
 $ go run schema_generator.go > schema.json
 ```
@@ -359,20 +363,21 @@ $ go run schema_generator.go > schema.json
 ## Code organization
 
 The source code in this repository is organized as follows:
+
 - The example/ directory contains a basic Thunder application.
 - The graphql/ directory contains Thunder's graphql parser and executor.
 - The reactive/ directory contains Thunder's core dependency-tracking and
   live-update mechanism.
 - The batch/ directory contains Thunder's batching package.
-- The diff/ and merge/ directories contain Thunder's JSON diffing library
-  used for live queries.
+- The diff/ and merge/ directories contain Thunder's JSON diffing library used
+  for live queries.
 - The livesql/ directory contains a Thunder driver for MySQL.
 - The sqlgen/ directory contains a lightweight SQL query generator used by
   livesql/.
 
 # Status
 
- Thunder has proven itself in production use at Samsara for close to two
- years. This repository is still under development, and there will be some
- breaking changes to the API but they should be manageable. If you're
- adventurous, please give it a try.
+Thunder has proven itself in production use at Samsara for close to two years.
+This repository is still under development, and there will be some breaking
+changes to the API but they should be manageable. If you're adventurous, please
+give it a try.

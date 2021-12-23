@@ -9,9 +9,9 @@ import (
 	"testing"
 	"time"
 
+	"github.com/edwardofclt/thunder/graphql/introspection"
+	"github.com/edwardofclt/thunder/graphql/schemabuilder"
 	"github.com/samsarahq/go/oops"
-	"github.com/samsarahq/thunder/graphql/introspection"
-	"github.com/samsarahq/thunder/graphql/schemabuilder"
 	"github.com/stretchr/testify/require"
 )
 

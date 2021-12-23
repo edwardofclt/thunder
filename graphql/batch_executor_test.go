@@ -7,10 +7,10 @@ import (
 	"sync/atomic"
 	"testing"
 
-	"github.com/samsarahq/thunder/batch"
-	"github.com/samsarahq/thunder/graphql"
-	"github.com/samsarahq/thunder/graphql/schemabuilder"
-	"github.com/samsarahq/thunder/internal"
+	"github.com/edwardofclt/thunder/batch"
+	"github.com/edwardofclt/thunder/graphql"
+	"github.com/edwardofclt/thunder/graphql/schemabuilder"
+	"github.com/edwardofclt/thunder/internal"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 )

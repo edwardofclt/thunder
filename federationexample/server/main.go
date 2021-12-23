@@ -6,14 +6,12 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/samsarahq/thunder/thunderpb"
-	"github.com/samsarahq/thunder/federation"
+	"github.com/edwardofclt/thunder/federation"
+	"github.com/edwardofclt/thunder/thunderpb"
 	"google.golang.org/grpc"
 
-	"github.com/samsarahq/thunder/graphql"
+	"github.com/edwardofclt/thunder/graphql"
 )
-
-
 
 func HTTPHandler() http.Handler {
 	return &httpHandler{}
@@ -95,8 +93,6 @@ func (h *httpHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 	writeResponse(res, nil)
 
 }
-
-
 
 func main() {
 	http.Handle("/", http.FileServer(http.Dir(".")))

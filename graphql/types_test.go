@@ -1,9 +1,10 @@
 package graphql_test
 
 import (
-	"github.com/samsarahq/thunder/graphql"
-	"github.com/stretchr/testify/require"
 	"testing"
+
+	"github.com/edwardofclt/thunder/graphql"
+	"github.com/stretchr/testify/require"
 )
 
 func TestSelectionSetShallowCopy(t *testing.T) {

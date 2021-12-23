@@ -4,10 +4,10 @@ import (
 	"context"
 	"testing"
 
+	"github.com/edwardofclt/thunder/graphql"
+	"github.com/edwardofclt/thunder/graphql/introspection"
+	"github.com/edwardofclt/thunder/thunderpb"
 	"github.com/samsarahq/go/oops"
-	"github.com/samsarahq/thunder/graphql"
-	"github.com/samsarahq/thunder/graphql/introspection"
-	"github.com/samsarahq/thunder/thunderpb"
 	"github.com/stretchr/testify/require"
 	"google.golang.org/grpc/metadata"
 )

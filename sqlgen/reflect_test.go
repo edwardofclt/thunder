@@ -10,9 +10,9 @@ import (
 	"time"
 
 	"github.com/davecgh/go-spew/spew"
+	"github.com/edwardofclt/thunder/internal/fields"
+	"github.com/edwardofclt/thunder/internal/testfixtures"
 	"github.com/kylelemons/godebug/pretty"
-	"github.com/samsarahq/thunder/internal/fields"
-	"github.com/samsarahq/thunder/internal/testfixtures"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 )

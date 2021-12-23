@@ -1,16 +1,16 @@
 package federation
 
 import (
+	"bytes"
 	"context"
 	"encoding/json"
 	"errors"
 	"fmt"
 	"strings"
 	"testing"
-	"bytes"
 
-	"github.com/samsarahq/thunder/graphql"
-	"github.com/samsarahq/thunder/graphql/schemabuilder"
+	"github.com/edwardofclt/thunder/graphql"
+	"github.com/edwardofclt/thunder/graphql/schemabuilder"
 
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
@@ -1522,7 +1522,7 @@ func TestBasicFederatedObjectFetchAllFields(t *testing.T) {
 					}
 				}
 				`,
-				Output: `
+			Output: `
 				{
 					"users":[
 						{

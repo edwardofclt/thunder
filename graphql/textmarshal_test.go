@@ -4,9 +4,9 @@ import (
 	"errors"
 	"testing"
 
-	"github.com/samsarahq/thunder/graphql/schemabuilder"
-	"github.com/samsarahq/thunder/internal/testgraphql"
-	"github.com/satori/go.uuid"
+	"github.com/edwardofclt/thunder/graphql/schemabuilder"
+	"github.com/edwardofclt/thunder/internal/testgraphql"
+	uuid "github.com/satori/go.uuid"
 )
 
 func TestTextMarshaling(t *testing.T) {
